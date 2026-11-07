@@ -30,10 +30,33 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+  width: 100%;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   background: var(--bg-primary);
   color: var(--text-primary);
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+  min-width: 0;
+}
+
+button {
+  touch-action: manipulation;
 }

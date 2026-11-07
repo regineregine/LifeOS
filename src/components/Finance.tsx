@@ -104,7 +104,7 @@ function Finance() {
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+      <div className="mb-8 grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         <div
           className="border rounded-2xl p-5"
           style={{ borderColor: "var(--border-color)" }}
@@ -113,7 +113,7 @@ function Finance() {
           <p className="text-sm mt-3" style={{ color: "var(--text-secondary)" }}>
             Total Income
           </p>
-          <h3 className="text-2xl font-semibold mt-1">
+          <h3 className="mt-1 text-xl font-semibold sm:text-2xl wrap-anywhere">
             {money(totalIncome)}
           </h3>
         </div>
@@ -126,7 +126,7 @@ function Finance() {
           <p className="text-sm mt-3" style={{ color: "var(--text-secondary)" }}>
             Total Expenses
           </p>
-          <h3 className="text-2xl font-semibold mt-1">
+          <h3 className="mt-1 text-xl font-semibold sm:text-2xl wrap-anywhere">
             {money(totalExpenses)}
           </h3>
         </div>
@@ -139,7 +139,7 @@ function Finance() {
           <p className="text-sm mt-3" style={{ color: "var(--text-secondary)" }}>
             Remaining Balance
           </p>
-          <h3 className="text-2xl font-semibold mt-1">
+          <h3 className="mt-1 text-xl font-semibold sm:text-2xl wrap-anywhere">
             {money(balance)}
           </h3>
         </div>
@@ -155,12 +155,12 @@ function Finance() {
           Add Transaction
         </h3>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex min-w-0 flex-col gap-3">
           <input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Transaction name..."
-            className="border rounded-xl px-4 py-3 outline-none"
+            className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
               background: "var(--bg-secondary)",
               color: "var(--text-primary)",
@@ -175,7 +175,7 @@ function Finance() {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Amount in PHP..."
-            className="border rounded-xl px-4 py-3 outline-none"
+            className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
               background: "var(--bg-secondary)",
               color: "var(--text-primary)",
@@ -188,7 +188,7 @@ function Finance() {
             onChange={(e) =>
               setType(e.target.value as "income" | "expense")
             }
-            className="border rounded-xl px-4 py-3"
+            className="w-full min-w-0 border rounded-xl px-4 py-3"
             style={{
               background: "var(--bg-secondary)",
               color: "var(--text-primary)",
@@ -202,7 +202,7 @@ function Finance() {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="border rounded-xl px-4 py-3"
+            className="w-full min-w-0 border rounded-xl px-4 py-3"
             style={{
               background: "var(--bg-secondary)",
               color: "var(--text-primary)",
@@ -222,7 +222,7 @@ function Finance() {
 
           <button
             onClick={addTransaction}
-            className="flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium"
+            className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium"
             style={{
               background: "var(--text-primary)",
               color: "var(--bg-primary)",
@@ -256,11 +256,11 @@ function Finance() {
             {transactions.map((item) => (
               <div
                 key={item.id}
-                className="border rounded-xl p-4 flex items-center justify-between gap-3"
+                className="flex min-w-0 flex-col gap-2 rounded-xl border p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-3"
                 style={{ borderColor: "var(--border-color)" }}
               >
-                <div>
-                  <h4 className="font-medium">{item.title}</h4>
+                <div className="min-w-0 flex-1">
+                  <h4 className="break-words font-medium [overflow-wrap:anywhere]">{item.title}</h4>
                   <p
                     className="text-xs mt-1"
                     style={{ color: "var(--text-secondary)" }}
@@ -269,15 +269,15 @@ function Finance() {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <span className="font-semibold whitespace-nowrap">
+                <div className="flex min-w-0 items-center justify-between gap-2 sm:justify-end sm:gap-3">
+                  <span className="min-w-0 break-words text-right text-sm font-semibold tabular-nums [overflow-wrap:anywhere] sm:whitespace-nowrap sm:text-base">
                     {item.type === "income" ? "+" : "-"}
                     {money(item.amount)}
                   </span>
 
                   <button
                     onClick={() => deleteTransaction(item.id)}
-                    className="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
                     aria-label={`Delete ${item.title}`}
                   >
                     <Trash2 size={17} />

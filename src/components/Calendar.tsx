@@ -100,12 +100,12 @@ function Calendar() {
           Add New Event
         </h3>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex min-w-0 flex-col gap-3">
           <input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Event title..."
-            className="border rounded-xl px-4 py-3 outline-none"
+            className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
               background: "var(--bg-secondary)",
               color: "var(--text-primary)",
@@ -118,7 +118,7 @@ function Calendar() {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Event description (optional)..."
             rows={3}
-            className="border rounded-xl px-4 py-3 outline-none resize-none"
+            className="w-full min-w-0 max-w-full resize-none border rounded-xl px-4 py-3 outline-none"
             style={{
               background: "var(--bg-secondary)",
               color: "var(--text-primary)",
@@ -131,7 +131,7 @@ function Calendar() {
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="border rounded-xl px-4 py-3"
+              className="w-full min-w-0 border rounded-xl px-4 py-3"
               style={{
                 background: "var(--bg-secondary)",
                 color: "var(--text-primary)",
@@ -143,7 +143,7 @@ function Calendar() {
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
-              className="border rounded-xl px-4 py-3"
+              className="w-full min-w-0 border rounded-xl px-4 py-3"
               style={{
                 background: "var(--bg-secondary)",
                 color: "var(--text-primary)",
@@ -154,7 +154,7 @@ function Calendar() {
 
           <button
             onClick={addEvent}
-           className="flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium w-full sm:w-auto"
+           className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium sm:w-auto"
             style={{
               background: "var(--text-primary)",
               color: "var(--bg-primary)",
@@ -192,11 +192,11 @@ function Calendar() {
                 style={{ borderColor: "var(--border-color)" }}
               >
                 <div className="min-w-0 flex-1">
-  <h4 className="font-medium break-words">{event.title}</h4>
+                  <h4 className="font-medium wrap-anywhere">{event.title}</h4>
 
                   {event.description && (
                     <p
-                      className="text-sm mt-1"
+                      className="mt-1 text-sm wrap-break-word"
                       style={{ color: "var(--text-secondary)" }}
                     >
                       {event.description}
@@ -213,7 +213,7 @@ function Calendar() {
 
                 <button
                   onClick={() => deleteEvent(event.id)}
-                  className="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
+                  className="flex h-11 w-11 shrink-0 self-end items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5 sm:self-center"
                   aria-label={`Delete ${event.title}`}
                 >
                   <Trash2 size={17} />

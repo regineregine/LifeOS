@@ -81,8 +81,8 @@ useEffect(() => {
     <div className="mt-10">
 
       {/* Goals Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div>
+      <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div className="min-w-0">
           <h2 className="text-xl font-semibold">My Goals</h2>
           <p
             className="text-sm mt-1"
@@ -93,7 +93,7 @@ useEffect(() => {
         </div>
 
         <span
-          className="text-sm"
+          className="text-sm sm:text-right"
           style={{ color: "var(--text-secondary)" }}
         >
           {goals.filter((goal) => goal.progress === 100).length} of {goals.length} completed
@@ -113,7 +113,7 @@ useEffect(() => {
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
             placeholder="Goal title..."
-            className="border rounded-xl px-4 py-3 outline-none"
+            className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
               background: "var(--bg-secondary)",
               color: "var(--text-primary)",
@@ -126,7 +126,7 @@ useEffect(() => {
             value={newDescription}
             onChange={(e) => setNewDescription(e.target.value)}
             placeholder="Goal description..."
-            className="border rounded-xl px-4 py-3 outline-none"
+            className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
               background: "var(--bg-secondary)",
               color: "var(--text-primary)",
@@ -138,7 +138,7 @@ useEffect(() => {
             type="date"
             value={newDate}
             onChange={(e) => setNewDate(e.target.value)}
-            className="border rounded-xl px-4 py-3 outline-none"
+            className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
               background: "var(--bg-secondary)",
               color: "var(--text-primary)",
@@ -148,7 +148,7 @@ useEffect(() => {
 
           <button
             onClick={addGoal}
-            className="flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium"
+            className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium"
             style={{
               background: "var(--text-primary)",
               color: "var(--bg-primary)",
@@ -174,7 +174,7 @@ useEffect(() => {
           goals.map((goal) => (
             <div
               key={goal.id}
-              className="border rounded-2xl p-5"
+              className="min-w-0 border rounded-2xl p-5"
               style={{ borderColor: "var(--border-color)" }}
             >
               <div className="flex items-start justify-between mb-4">
@@ -187,30 +187,30 @@ useEffect(() => {
 
                 <button
                   onClick={() => deleteGoal(goal.id)}
-                  className="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
+                  className="flex h-11 w-11 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
                   aria-label={`Delete ${goal.title}`}
                 >
                   <Trash2 size={18} />
                 </button>
               </div>
 
-              <h3 className="font-semibold text-lg">
+              <h3 className="wrap-break-word font-semibold text-lg">
                 {goal.title}
               </h3>
 
               <p
-                className="text-sm mt-2 mb-4"
+                className="mt-2 mb-4 wrap-break-word text-sm"
                 style={{ color: "var(--text-secondary)" }}
               >
                 {goal.description || "No description provided."}
               </p>
 
               <div
-                className="flex items-center gap-2 text-xs mb-4"
+                className="mb-4 flex min-w-0 flex-wrap items-center gap-2 text-xs"
                 style={{ color: "var(--text-secondary)" }}
               >
                 <CalendarDays size={15} />
-                Target: {goal.targetDate}
+                <span className="wrap-break-word">Target: {goal.targetDate}</span>
               </div>
 
               <div className="flex justify-between text-sm mb-2">

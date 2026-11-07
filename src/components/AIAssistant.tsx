@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Bot,
@@ -50,7 +49,7 @@ function AIAssistant() {
   };
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 min-w-0">
       {/* Header */}
       <div className="mb-6">
         <h2 className="text-xl font-semibold flex items-center gap-2">
@@ -68,12 +67,12 @@ function AIAssistant() {
 
       {/* Assistant Card */}
       <div
-        className="border rounded-2xl overflow-hidden"
+        className="flex h-[min(65vh,46rem)] min-h-88 min-w-0 flex-col overflow-hidden rounded-2xl border"
         style={{ borderColor: "var(--border-color)" }}
       >
         {/* Assistant Introduction */}
         <div
-          className="p-5 border-b flex items-center gap-3"
+          className="flex shrink-0 items-center gap-3 border-b p-4 sm:p-5"
           style={{
             borderColor: "var(--border-color)",
             background: "var(--bg-secondary)",
@@ -85,7 +84,7 @@ function AIAssistant() {
             <Bot size={25} />
           </div>
 
-          <div>
+          <div className="min-w-0">
             <h3 className="font-semibold">LifeOS Assistant</h3>
             <p
               className="text-xs"
@@ -97,18 +96,18 @@ function AIAssistant() {
         </div>
 
         {/* Messages */}
-        <div className="p-5 flex flex-col gap-4 min-h-64 max-h-96 overflow-y-auto">
+        <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-3 sm:p-5">
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`flex gap-3 ${
+              className={`flex min-w-0 items-start gap-3 ${
                 message.sender === "user"
                   ? "justify-end"
                   : "justify-start"
               }`}
             >
               {message.sender === "assistant" && (
-                <div className="p-2 rounded-lg border h-fit"
+                <div className="h-fit shrink-0 rounded-lg border p-2"
                   style={{ borderColor: "var(--border-color)" }}
                 >
                   <Bot size={18} />
@@ -116,7 +115,7 @@ function AIAssistant() {
               )}
 
               <div
-                className="rounded-2xl px-4 py-3 max-w-[80%]"
+                className="min-w-0 max-w-[calc(100%-3rem)] wrap-break-word rounded-2xl px-4 py-3"
                 style={{
                   background:
                     message.sender === "user"
@@ -128,11 +127,11 @@ function AIAssistant() {
                       : "var(--text-primary)",
                 }}
               >
-                <p className="text-sm">{message.text}</p>
+                <p className="whitespace-pre-wrap wrap-break-word text-sm">{message.text}</p>
               </div>
 
               {message.sender === "user" && (
-                <div className="p-2 rounded-lg border h-fit"
+                <div className="h-fit shrink-0 rounded-lg border p-2"
                   style={{ borderColor: "var(--border-color)" }}
                 >
                   <User size={18} />
@@ -143,7 +142,7 @@ function AIAssistant() {
         </div>
 
         {/* Suggested Prompts */}
-        <div className="px-5 pb-4">
+        <div className="shrink-0 px-4 pb-4 sm:px-5">
           <div className="flex items-center gap-2 mb-3">
             <Lightbulb size={16} />
             <p className="text-xs font-medium"
@@ -162,7 +161,7 @@ function AIAssistant() {
               <button
                 key={suggestion}
                 onClick={() => setInput(suggestion)}
-                className="text-xs border rounded-full px-3 py-2 hover:opacity-70"
+                className="min-h-10 max-w-full wrap-break-word border rounded-full px-3 py-2 text-left text-xs hover:opacity-70"
                 style={{ borderColor: "var(--border-color)" }}
               >
                 {suggestion}
@@ -173,7 +172,7 @@ function AIAssistant() {
 
         {/* Message Input */}
         <div
-          className="p-4 border-t flex gap-3"
+          className="flex shrink-0 gap-2 border-t p-3 sm:gap-3 sm:p-4"
           style={{ borderColor: "var(--border-color)" }}
         >
           <input
@@ -183,7 +182,7 @@ function AIAssistant() {
               if (e.key === "Enter") sendMessage();
             }}
             placeholder="Ask your LifeOS Assistant..."
-            className="flex-1 min-w-0 border rounded-xl px-4 py-3 outline-none text-sm"
+            className="min-h-11 min-w-0 flex-1 border rounded-xl px-3 py-3 text-sm outline-none sm:px-4"
             style={{
               background: "var(--bg-secondary)",
               color: "var(--text-primary)",
@@ -193,7 +192,7 @@ function AIAssistant() {
 
           <button
             onClick={sendMessage}
-            className="rounded-xl px-4 py-3"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
             style={{
               background: "var(--text-primary)",
               color: "var(--bg-primary)",
