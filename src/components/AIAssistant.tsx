@@ -53,7 +53,7 @@ function AIAssistant() {
       {/* Header */}
       <div className="mb-6">
         <h2 className="text-xl font-semibold flex items-center gap-2">
-          <Sparkles size={22} />
+          <Sparkles size={22} style={{ color: "var(--accent-hover)" }} />
           AI Assistant
         </h2>
 
@@ -110,7 +110,7 @@ function AIAssistant() {
                 <div className="h-fit shrink-0 rounded-lg border p-2"
                   style={{ borderColor: "var(--border-color)" }}
                 >
-                  <Bot size={18} />
+                  <Bot size={18} style={{ color: "var(--accent-hover)" }} />
                 </div>
               )}
 
@@ -119,11 +119,11 @@ function AIAssistant() {
                 style={{
                   background:
                     message.sender === "user"
-                      ? "var(--text-primary)"
+                      ? "var(--accent)"
                       : "var(--bg-secondary)",
                   color:
                     message.sender === "user"
-                      ? "var(--bg-primary)"
+                      ? "var(--accent-contrast)"
                       : "var(--text-primary)",
                 }}
               >
@@ -161,7 +161,7 @@ function AIAssistant() {
               <button
                 key={suggestion}
                 onClick={() => setInput(suggestion)}
-                className="min-h-10 max-w-full wrap-break-word border rounded-full px-3 py-2 text-left text-xs hover:opacity-70"
+                className="button-secondary min-h-10 max-w-full wrap-break-word border rounded-full px-3 py-2 text-left text-xs"
                 style={{ borderColor: "var(--border-color)" }}
               >
                 {suggestion}
@@ -184,7 +184,7 @@ function AIAssistant() {
             placeholder="Ask your LifeOS Assistant..."
             className="min-h-11 min-w-0 flex-1 border rounded-xl px-3 py-3 text-sm outline-none sm:px-4"
             style={{
-              background: "var(--bg-secondary)",
+              background: "var(--surface-elevated)",
               color: "var(--text-primary)",
               borderColor: "var(--border-color)",
             }}
@@ -192,10 +192,10 @@ function AIAssistant() {
 
           <button
             onClick={sendMessage}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+            className="button-primary flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
             style={{
-              background: "var(--text-primary)",
-              color: "var(--bg-primary)",
+              background: "var(--accent)",
+              color: "var(--accent-contrast)",
             }}
             aria-label="Send message"
           >

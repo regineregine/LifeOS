@@ -88,7 +88,7 @@ function Sidebar({ activeSection, onNavigate }: SidebarProps) {
 
       {/* Sidebar */}
       <aside
-        className={`
+        className={`app-sidebar
           fixed inset-y-0 left-0 z-50
           h-screen w-72 max-w-[85vw] overflow-y-auto
           flex flex-col border-r p-5 pt-20
@@ -102,7 +102,7 @@ function Sidebar({ activeSection, onNavigate }: SidebarProps) {
           }
         `}
         style={{
-          background: "var(--bg-sidebar)",
+          backgroundColor: "var(--bg-sidebar)",
           borderColor: "var(--border-color)",
         }}
       >
@@ -110,7 +110,7 @@ function Sidebar({ activeSection, onNavigate }: SidebarProps) {
         <div className="flex items-center gap-3 mb-10 shrink-0">
           <div
             className="w-10 h-10 rounded-xl flex items-center justify-center"
-            style={{ background: "var(--text-primary)" }}
+            style={{ background: "var(--accent)" }}
           >
             <BrainCircuit
               color="var(--bg-primary)"
@@ -147,20 +147,9 @@ function Sidebar({ activeSection, onNavigate }: SidebarProps) {
               <button
                 key={item.label}
                 onClick={() => navigate(item.label)}
-                className={
-                  menuItem +
-                  (isActive
-                    ? ""
-                    : " hover:bg-black/5 dark:hover:bg-white/5")
-                }
-                style={{
-                  background: isActive
-                    ? "var(--text-primary)"
-                    : "transparent",
-                  color: isActive
-                    ? "var(--bg-primary)"
-                    : "var(--text-secondary)",
-                }}
+                className={`${menuItem} nav-item`}
+                data-active={isActive}
+                aria-current={isActive ? "page" : undefined}
               >
                 <Icon size={20} />
                 {item.label}
@@ -176,22 +165,9 @@ function Sidebar({ activeSection, onNavigate }: SidebarProps) {
         >
           <button
             onClick={() => navigate("Settings")}
-            className={
-              menuItem +
-              (activeSection === "Settings"
-                ? ""
-                : " hover:bg-black/5 dark:hover:bg-white/5")
-            }
-            style={{
-              background:
-                activeSection === "Settings"
-                  ? "var(--text-primary)"
-                  : "transparent",
-              color:
-                activeSection === "Settings"
-                  ? "var(--bg-primary)"
-                  : "var(--text-secondary)",
-            }}
+            className={`${menuItem} nav-item`}
+            data-active={activeSection === "Settings"}
+            aria-current={activeSection === "Settings" ? "page" : undefined}
           >
             <Settings size={20} />
             Settings
@@ -202,8 +178,8 @@ function Sidebar({ activeSection, onNavigate }: SidebarProps) {
             <div
               className="w-10 h-10 rounded-full flex items-center justify-center font-bold"
               style={{
-                background: "var(--text-primary)",
-                color: "var(--bg-primary)",
+                background: "var(--accent)",
+                color: "var(--accent-contrast)",
               }}
             >
               U

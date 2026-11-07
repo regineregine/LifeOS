@@ -48,7 +48,7 @@ const getUpcomingEvents = (): EventPreview[] => {
 };
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [profileName, setProfileName] = useState(
     () => localStorage.getItem("lifeos-profile-name") || "",
   );
@@ -239,15 +239,15 @@ function App() {
         placeholder="Add a new task..."
         className="min-w-0 w-full flex-1 rounded-xl border px-4 py-3 outline-none"
         style={{
-          background: "var(--bg-secondary)",
+          background: "var(--surface-elevated)",
           color: "var(--text-primary)",
           borderColor: "var(--border-color)",
         }}
       />
       <button
         onClick={addTask}
-        className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium sm:w-auto"
-        style={{ background: "var(--text-primary)", color: "var(--bg-primary)" }}
+        className="button-primary flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium sm:w-auto"
+        style={{ background: "var(--accent)", color: "var(--accent-contrast)" }}
       >
         <Plus size={18} />
         Add
@@ -283,7 +283,7 @@ function App() {
             </span>
             <button
               onClick={() => deleteTask(task.id)}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
+              className="icon-button flex h-11 w-11 shrink-0 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
               aria-label={`Delete ${task.title}`}
             >
               <Trash2 size={18} />
@@ -312,20 +312,20 @@ function App() {
   );
 
   return (
-    <div className={darkMode ? "dark" : ""}>
+    <div className={darkMode ? "dark" : "light"}>
       <div
-        className="flex min-h-screen flex-col lg:flex-row"
-        style={{ background: "var(--bg-primary)", color: "var(--text-primary)" }}
+        className="app-shell flex min-h-screen flex-col lg:flex-row"
+        style={{ color: "var(--text-primary)" }}
       >
         <Sidebar activeSection={activeSection} onNavigate={navigateToSection} />
 
         <main className="min-w-0 w-full flex-1 px-4 pb-8 pt-20 sm:px-6 sm:pb-10 lg:p-8">
-          <header className="mb-8 sm:mb-10">
+          <header className="app-header mb-8 sm:mb-10">
             <p className="mb-2 text-sm" style={{ color: "var(--text-secondary)" }}>
               {today}
             </p>
             <h1 className="wrap-break-word text-2xl font-bold sm:text-3xl">
-              {greeting}{profileName ? `, ${profileName}` : ""}! <span aria-hidden="true">👋</span>
+              {greeting}{profileName ? `, ${profileName}` : ""}! <span className="text-cyan-300" aria-hidden="true">✦</span>
             </h1>
             <p className="mt-2" style={{ color: "var(--text-secondary)" }}>
               Welcome back. Let&apos;s organize your day.
@@ -408,7 +408,7 @@ function App() {
                   >
                     <div
                       className="h-full rounded-full transition-[width] duration-300"
-                      style={{ width: `${taskProgress}%`, background: "var(--text-primary)" }}
+                      style={{ width: `${taskProgress}%`, background: "var(--accent)" }}
                     />
                   </div>
                   <p className="mt-3 text-sm" style={{ color: "var(--text-secondary)" }}>
@@ -468,7 +468,7 @@ function App() {
                         className="w-full max-w-9 rounded-t-md transition-[height] duration-300"
                         style={{
                           height: `${Math.max((item.count / weeklyMax) * 110, 6)}px`,
-                          background: "var(--text-primary)",
+                          background: "var(--accent)",
                         }}
                         aria-hidden="true"
                       />
@@ -552,7 +552,7 @@ function App() {
                   placeholder="Enter your name..."
                   className="w-full min-w-0 rounded-xl border px-4 py-3 outline-none"
                   style={{
-                    background: "var(--bg-primary)",
+                    background: "var(--surface-elevated)",
                     color: "var(--text-primary)",
                     borderColor: "var(--border-color)",
                   }}
@@ -575,7 +575,7 @@ function App() {
                   </div>
                   <button
                     onClick={() => setDarkMode((current) => !current)}
-                    className="min-h-11 w-full rounded-xl border px-4 py-3 font-medium sm:w-auto"
+                    className="button-secondary min-h-11 w-full rounded-xl border px-4 py-3 font-medium sm:w-auto"
                     style={{
                       borderColor: "var(--border-color)",
                       background: "var(--bg-primary)",

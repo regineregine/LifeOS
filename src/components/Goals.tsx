@@ -115,7 +115,7 @@ useEffect(() => {
             placeholder="Goal title..."
             className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
-              background: "var(--bg-secondary)",
+              background: "var(--surface-elevated)",
               color: "var(--text-primary)",
               borderColor: "var(--border-color)",
             }}
@@ -128,7 +128,7 @@ useEffect(() => {
             placeholder="Goal description..."
             className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
-              background: "var(--bg-secondary)",
+              background: "var(--surface-elevated)",
               color: "var(--text-primary)",
               borderColor: "var(--border-color)",
             }}
@@ -140,7 +140,7 @@ useEffect(() => {
             onChange={(e) => setNewDate(e.target.value)}
             className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
-              background: "var(--bg-secondary)",
+              background: "var(--surface-elevated)",
               color: "var(--text-primary)",
               borderColor: "var(--border-color)",
             }}
@@ -148,10 +148,10 @@ useEffect(() => {
 
           <button
             onClick={addGoal}
-            className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium"
+            className="button-primary flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium"
             style={{
-              background: "var(--text-primary)",
-              color: "var(--bg-primary)",
+              background: "var(--accent)",
+              color: "var(--accent-contrast)",
             }}
           >
             <Plus size={18} />
@@ -180,14 +180,14 @@ useEffect(() => {
               <div className="flex items-start justify-between mb-4">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: "var(--bg-secondary)" }}
+                  style={{ background: "var(--accent-soft)", color: "var(--accent-hover)" }}
                 >
                   <Target size={21} />
                 </div>
 
                 <button
                   onClick={() => deleteGoal(goal.id)}
-                  className="flex h-11 w-11 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
+                  className="icon-button flex h-11 w-11 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
                   aria-label={`Delete ${goal.title}`}
                 >
                   <Trash2 size={18} />
@@ -222,13 +222,13 @@ useEffect(() => {
 
               <div
                 className="w-full h-2 rounded-full overflow-hidden mb-4"
-                style={{ background: "var(--bg-secondary)" }}
+                  style={{ background: "var(--accent-soft)", color: "var(--accent-hover)" }}
               >
                 <div
                   className="h-full rounded-full transition-all"
                   style={{
                     width: `${goal.progress}%`,
-                    background: "var(--text-primary)",
+                    background: "var(--accent)",
                   }}
                 />
               </div>
@@ -247,7 +247,7 @@ useEffect(() => {
               />
 
               {goal.progress === 100 && (
-                <p className="text-sm font-semibold mt-3">
+                  <p className="mt-3 text-sm font-semibold" style={{ color: "var(--accent-hover)" }}>
                   Goal completed!
                 </p>
               )}

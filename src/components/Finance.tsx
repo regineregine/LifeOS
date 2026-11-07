@@ -109,7 +109,7 @@ function Finance() {
           className="border rounded-2xl p-5"
           style={{ borderColor: "var(--border-color)" }}
         >
-          <TrendingUp size={22} />
+          <TrendingUp size={22} style={{ color: "var(--accent-hover)" }} />
           <p className="text-sm mt-3" style={{ color: "var(--text-secondary)" }}>
             Total Income
           </p>
@@ -122,7 +122,7 @@ function Finance() {
           className="border rounded-2xl p-5"
           style={{ borderColor: "var(--border-color)" }}
         >
-          <TrendingDown size={22} />
+          <TrendingDown size={22} style={{ color: "var(--accent-hover)" }} />
           <p className="text-sm mt-3" style={{ color: "var(--text-secondary)" }}>
             Total Expenses
           </p>
@@ -135,7 +135,7 @@ function Finance() {
           className="border rounded-2xl p-5"
           style={{ borderColor: "var(--border-color)" }}
         >
-          <Wallet size={22} />
+          <Wallet size={22} style={{ color: "var(--accent-hover)" }} />
           <p className="text-sm mt-3" style={{ color: "var(--text-secondary)" }}>
             Remaining Balance
           </p>
@@ -162,7 +162,7 @@ function Finance() {
             placeholder="Transaction name..."
             className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
-              background: "var(--bg-secondary)",
+              background: "var(--surface-elevated)",
               color: "var(--text-primary)",
               borderColor: "var(--border-color)",
             }}
@@ -177,7 +177,7 @@ function Finance() {
             placeholder="Amount in PHP..."
             className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
-              background: "var(--bg-secondary)",
+              background: "var(--surface-elevated)",
               color: "var(--text-primary)",
               borderColor: "var(--border-color)",
             }}
@@ -190,7 +190,7 @@ function Finance() {
             }
             className="w-full min-w-0 border rounded-xl px-4 py-3"
             style={{
-              background: "var(--bg-secondary)",
+              background: "var(--surface-elevated)",
               color: "var(--text-primary)",
               borderColor: "var(--border-color)",
             }}
@@ -204,7 +204,7 @@ function Finance() {
             onChange={(e) => setCategory(e.target.value)}
             className="w-full min-w-0 border rounded-xl px-4 py-3"
             style={{
-              background: "var(--bg-secondary)",
+              background: "var(--surface-elevated)",
               color: "var(--text-primary)",
               borderColor: "var(--border-color)",
             }}
@@ -222,10 +222,10 @@ function Finance() {
 
           <button
             onClick={addTransaction}
-            className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium"
+            className="button-primary flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium"
             style={{
-              background: "var(--text-primary)",
-              color: "var(--bg-primary)",
+              background: "var(--accent)",
+              color: "var(--accent-contrast)",
             }}
           >
             <Plus size={18} />
@@ -237,7 +237,7 @@ function Finance() {
       {/* Transaction History */}
       <div>
         <div className="flex items-center gap-2 mb-4">
-          <PiggyBank size={20} />
+          <PiggyBank size={20} style={{ color: "var(--accent-hover)" }} />
           <h3 className="font-semibold">Transaction History</h3>
         </div>
 
@@ -277,7 +277,7 @@ function Finance() {
 
                   <button
                     onClick={() => deleteTransaction(item.id)}
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
+                    className="icon-button flex h-11 w-11 shrink-0 items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
                     aria-label={`Delete ${item.title}`}
                   >
                     <Trash2 size={17} />

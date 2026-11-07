@@ -78,7 +78,7 @@ function Calendar() {
       {/* Header */}
       <div className="mb-6">
         <h2 className="text-xl font-semibold flex items-center gap-2">
-          <CalendarDays size={22} />
+          <CalendarDays size={22} style={{ color: "var(--accent-hover)" }} />
           Calendar & Schedule
         </h2>
 
@@ -107,7 +107,7 @@ function Calendar() {
             placeholder="Event title..."
             className="w-full min-w-0 border rounded-xl px-4 py-3 outline-none"
             style={{
-              background: "var(--bg-secondary)",
+              background: "var(--surface-elevated)",
               color: "var(--text-primary)",
               borderColor: "var(--border-color)",
             }}
@@ -120,7 +120,7 @@ function Calendar() {
             rows={3}
             className="w-full min-w-0 max-w-full resize-none border rounded-xl px-4 py-3 outline-none"
             style={{
-              background: "var(--bg-secondary)",
+              background: "var(--surface-elevated)",
               color: "var(--text-primary)",
               borderColor: "var(--border-color)",
             }}
@@ -133,7 +133,7 @@ function Calendar() {
               onChange={(e) => setDate(e.target.value)}
               className="w-full min-w-0 border rounded-xl px-4 py-3"
               style={{
-                background: "var(--bg-secondary)",
+                background: "var(--surface-elevated)",
                 color: "var(--text-primary)",
                 borderColor: "var(--border-color)",
               }}
@@ -145,7 +145,7 @@ function Calendar() {
               onChange={(e) => setTime(e.target.value)}
               className="w-full min-w-0 border rounded-xl px-4 py-3"
               style={{
-                background: "var(--bg-secondary)",
+                background: "var(--surface-elevated)",
                 color: "var(--text-primary)",
                 borderColor: "var(--border-color)",
               }}
@@ -154,10 +154,10 @@ function Calendar() {
 
           <button
             onClick={addEvent}
-           className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium sm:w-auto"
+            className="button-primary flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium sm:w-auto"
             style={{
-              background: "var(--text-primary)",
-              color: "var(--bg-primary)",
+              background: "var(--accent)",
+              color: "var(--accent-contrast)",
             }}
           >
             <Plus size={18} />
@@ -169,7 +169,7 @@ function Calendar() {
       {/* Event List */}
       <div>
         <h3 className="font-semibold mb-4 flex items-center gap-2">
-          <Clock size={20} />
+          <Clock size={20} style={{ color: "var(--accent-hover)" }} />
           Upcoming Events
         </h3>
 
@@ -213,7 +213,7 @@ function Calendar() {
 
                 <button
                   onClick={() => deleteEvent(event.id)}
-                  className="flex h-11 w-11 shrink-0 self-end items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5 sm:self-center"
+                  className="icon-button flex h-11 w-11 shrink-0 self-end items-center justify-center rounded-lg hover:bg-black/5 dark:hover:bg-white/5 sm:self-center"
                   aria-label={`Delete ${event.title}`}
                 >
                   <Trash2 size={17} />
