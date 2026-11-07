@@ -260,7 +260,7 @@ function Finance() {
                 style={{ borderColor: "var(--border-color)" }}
               >
                 <div className="min-w-0 flex-1">
-                  <h4 className="break-words font-medium [overflow-wrap:anywhere]">{item.title}</h4>
+                  <h4 className="font-medium wrap-anywhere">{item.title}</h4>
                   <p
                     className="text-xs mt-1"
                     style={{ color: "var(--text-secondary)" }}
@@ -270,7 +270,7 @@ function Finance() {
                 </div>
 
                 <div className="flex min-w-0 items-center justify-between gap-2 sm:justify-end sm:gap-3">
-                  <span className="min-w-0 break-words text-right text-sm font-semibold tabular-nums [overflow-wrap:anywhere] sm:whitespace-nowrap sm:text-base">
+                  <span className="min-w-0 text-right text-sm font-semibold tabular-nums wrap-anywhere sm:whitespace-nowrap sm:text-base">
                     {item.type === "income" ? "+" : "-"}
                     {money(item.amount)}
                   </span>
